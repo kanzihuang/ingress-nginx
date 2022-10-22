@@ -51,3 +51,9 @@ docker push `registry.<your domain>/ubuntu:16.04`
 ```
 
 Please replace `registry.<your domain>` with your domain.
+
+## Referances
+
+[Verify repository client with certificates](https://docs.docker.com/engine/security/certificates/)
+
+[OpenSSL创建带SAN扩展的证书并进行CA自签](https://www.jianshu.com/p/7ade7317bc6e)

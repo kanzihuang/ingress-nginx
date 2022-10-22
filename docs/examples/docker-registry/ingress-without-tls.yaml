@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: registry.<your domain>
+  - host: registry.hwanli.cn
     http:
       paths:
       - path: /
