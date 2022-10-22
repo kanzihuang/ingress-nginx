@@ -9,7 +9,7 @@ metadata:
     # Specify the verification depth in the client certificates chain
     nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
     # Specify an error page to be redirected to verification errors
-    nginx.ingress.kubernetes.io/auth-tls-error-page: "http://www.mysite.com/error-cert.html"
+    # nginx.ingress.kubernetes.io/auth-tls-error-page: "http://www.mysite.com/error-cert.html"
     # Specify if certificates are passed to upstream server
     nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
   name: docker-registry
@@ -18,9 +18,20 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
+    - registry.123sou.cn
     - registry.hwanli.cn
     secretName: registry-tls
   rules:
+  - host: registry.123sou.cn
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
   - host: registry.hwanli.cn
     http:
       paths:

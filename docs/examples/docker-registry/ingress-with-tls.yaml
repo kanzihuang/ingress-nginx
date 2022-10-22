@@ -12,9 +12,20 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
+    - registry.123sou.cn
     - registry.hwanli.cn
     secretName: registry-tls
   rules:
+  - host: registry.123sou.cn
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
   - host: registry.hwanli.cn
     http:
       paths:

@@ -57,3 +57,5 @@ Please replace `registry.<your domain>` with your domain.
 [Verify repository client with certificates](https://docs.docker.com/engine/security/certificates/)
 
 [OpenSSL创建带SAN扩展的证书并进行CA自签](https://www.jianshu.com/p/7ade7317bc6e)
+
+[Run an externally-accessible registry](https://docs.docker.com/registry/deploying/#run-an-externally-accessible-registry)
