@@ -5,17 +5,16 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-    kubernetes.io/tls-acme: 'true'
-  name: docker-registry
+  name: kubernetes-dashboard
   namespace: docker-registry
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - registry.123sou.cn
+    - dashboard.123sou.cn
     secretName: kubernetes-dashboard-certs
   rules:
-  - host: registry.123sou.cn
+  - host: dashboard.123sou.cn
     http:
       paths:
       - path: /

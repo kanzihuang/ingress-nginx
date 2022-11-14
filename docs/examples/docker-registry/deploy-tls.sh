@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-server=registry.hwanli.cn
+server=registry.123sou.cn
 certs=$(cd $(dirname $0) && pwd)/certs
 
 rm -r $certs && mkdir $certs && pushd $certs
@@ -20,5 +20,5 @@ sudo cp ca.crt /etc/docker/certs.d/$server
 popd
 
 kubectl -n docker-registry delete secret registry-tls --ignore-not-found
-kubectl create secret generic registry-tls --from-file tls.crt=$certs/tls.crt --from-file tls.key=$certs/tls.key
+kubectl -n docker-registry create secret generic registry-tls --from-file tls.crt=$certs/tls.crt --from-file tls.key=$certs/tls.key
 kubectl apply -f ingress-with-tls.yaml
